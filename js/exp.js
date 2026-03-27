@@ -440,8 +440,8 @@ var exp = (function() {
 
 }());
 
-const timeline = [exp.intro, 
-   // exp.round1_howToPlay, exp.round1_howToEarn, exp.round1, exp.round1_Qs, exp.round1_complete, 
+const timeline = [exp.intro, exp.round1_howToPlay, exp.round1_howToEarn, 
+    // exp.round1, exp.round1_Qs, exp.round1_complete, 
    // exp.round2_howToEarn, exp.round2, exp.round2_Qs, exp.demographics, 
     exp.save_data
 ];
