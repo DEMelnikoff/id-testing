@@ -10,20 +10,9 @@ const dmPsych = (function() {
   */
 
   // initialize jsPsych
-  // mouse movement tracking
-  let mouseMovementCount = 0;
-  let mouseMovementListener = null;
-
   window.jsPsych = initJsPsych({
-    on_trial_start: () => {
-      mouseMovementCount = 0;
-      mouseMovementListener = () => { mouseMovementCount++; };
-      document.addEventListener('mousemove', mouseMovementListener);
-    },
-    on_trial_finish: (data) => {
-      data.mouse_movements = mouseMovementCount;
-      document.removeEventListener('mousemove', mouseMovementListener);
-    },
+    on_trial_start: mouseTracker.startTracking,
+    on_trial_finish: mouseTracker.finishTracking,
     on_finish: () => {
       let boot = jsPsych.data.get().last(1).select('boot').values[0];
       let totalTokens_1_array = jsPsych.data.get().filter({round: 1}).select('totalTokens').values;
